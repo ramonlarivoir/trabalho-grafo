@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1522853415 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\aresta.cpp
+	"Aresta.h"
+
+1522853662 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\aresta.h
+	<iostream>
+
+1522853579 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\main.cpp
+	<iostream>
+	"No.h"
+	"Aresta.h"
+	"Grafo.h"
+
+1522853662 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\no.h
+	<iostream>
+	"Aresta.h"
+
+1522853660 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\grafo.h
+	<iostream>
+	"No.h"
+
+1522853586 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\grafo.cpp
+	"Grafo.h"
+
+1522853621 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\no.cpp
+	"No.h"
+
