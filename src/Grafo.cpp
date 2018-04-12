@@ -12,6 +12,12 @@ Grafo::~Grafo() {
     //dtor
 }
 
+/*****************************/
+/*                           */
+/*       GETS E SETS         */
+/*                           */
+/*****************************/
+
 No* Grafo::getListaNos() {
     return this->listaNos;
 }
@@ -31,6 +37,12 @@ int Grafo::getNumArestas() {
 void Grafo::setListaNos(No* listaNo) {
     this->listaNos = listaNo;
 }
+
+/*****************************/
+/*                           */
+/* INCLUSÃO E REMOÇÃO DE NÓS */
+/*                           */
+/*****************************/
 
 void Grafo::insereNo(No* no) {
     No *percorre = getListaNos();                   //cria nó para percorrer a lista de nós
@@ -68,6 +80,11 @@ void Grafo::removeNo(No* no) {
     }
 }
 
+/******************************/
+/*                            */
+/* IMPRESSÃO DOS NÓS DO GRAFO */
+/*                            */
+/******************************/
 
 void Grafo::imprimeLista() {
     No* percorre = getListaNos();                               //cria nó para percorrer a lista de nós

@@ -10,6 +10,9 @@ class No {
         float pesoNo;
         No *proxNo;
         Aresta* listaAresta;
+        int grau;
+        int grauEntrada;
+        int grauSaida;
     public:
         No(int id);
         ~No();
@@ -17,9 +20,15 @@ class No {
         float getPeso();
         No* getProxNo();
         Aresta* getListaAresta();
+        int getGrau();
+        int getGrauEntrada();
+        int getGrauSaida();
         void setPeso(float);
         void setProxNo(No*);
         void setListaAresta(Aresta*);
+        void setGrau(int);
+        void setGrauEntrada(int);
+        void setGrauSaida(int);
 };
 
 #endif // NO_H
