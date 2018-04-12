@@ -2,7 +2,8 @@
 #define GRAFO_H
 
 # include <iostream>
-#include "No.h"
+
+# include "No.h"
 
 class Grafo {
     private:
@@ -10,6 +11,7 @@ class Grafo {
         int grauGrafo;
         int numArestas;
         No *listaNos;
+        No *cabeca;
     public:
         Grafo();
         ~Grafo();
@@ -18,6 +20,9 @@ class Grafo {
         int getGrau();
         int getNumArestas();
         void setListaNos(No*);
+        void insereNo(No*);
+        void removeNo(No*);
+        void imprimeLista();
 };
 
 #endif // GRAFO_H

@@ -1,7 +1,7 @@
 #include "No.h"
 
-No::No() {
-    this->id            = 0;
+No::No(int id) {
+    this->id            = id;
     this->pesoNo        = 0;
     this->proxNo        = NULL;
     this->listaAresta   = NULL;

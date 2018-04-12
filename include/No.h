@@ -11,7 +11,7 @@ class No {
         No *proxNo;
         Aresta* listaAresta;
     public:
-        No();
+        No(int id);
         ~No();
         int getID();
         float getPeso();
