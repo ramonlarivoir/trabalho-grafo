@@ -16,14 +16,18 @@ int main() {
 
     g->insereNo(no1);
     g->insereNo(no2);
+    g->insereNo(no3);
 
     g->imprimeLista();
 
-    g->removeNo(no1);
-    g->removeNo(no2);
+    cout << "grau 1: " <<no1->getGrau() << endl;
 
-    cout << "Remove:" << endl;
-    g->imprimeLista();
+    no1->insereAresta(no2);
+    cout << "grau 1: " <<no1->getGrau() << endl;
+    no1->insereAresta(no3);
+    cout << "grau 1: " <<no1->getGrau() << endl;
+
+    cout << "Nó 1: " <<no1->getListaAresta()->getProxAresta()->getIDNo() << endl;
 
     return 0;
 }

@@ -8,6 +8,7 @@ No::No(int id) {
     this->grau          = 0;
     this->grauEntrada   = 0;
     this->grauSaida     = 0;
+    this->cabeca        = NULL;
 }
 
 No::~No() {
@@ -55,7 +56,7 @@ void No::setListaAresta(Aresta* listaAresta) {
 }
 
 void No::setGrau(int grau) {
-    this->grau = grau;
+    this->grau = this->grau + grau;
 }
 
 void No::setGrauEntrada(int grauEntrada) {
@@ -64,4 +65,20 @@ void No::setGrauEntrada(int grauEntrada) {
 
 void No::setGrauSaida(int grauSaida) {
     this->grauSaida = grauSaida;
+}
+
+void No::insereAresta(No* noAdj) {
+    Aresta* percorre = getListaAresta();
+    Aresta* novaAresta = new Aresta(noAdj->getID());
+    if(cabeca==NULL) {
+        cabeca = novaAresta;
+        setListaAresta(cabeca);
+        setGrau(1);
+    } else {
+        while(percorre->getProxAresta() != NULL) {
+            percorre = percorre->getProxAresta();
+        }
+        percorre->setProxAresta(novaAresta);
+        setGrau(1);
+    }
 }

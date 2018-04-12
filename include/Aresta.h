@@ -10,7 +10,7 @@ class Aresta {
         int id_No;
         Aresta *proxAresta;
     public:
-        Aresta();
+        Aresta(int);
         ~Aresta();
         float getPesoAresta();
         int getIDNo();

@@ -13,6 +13,7 @@ class No {
         int grau;
         int grauEntrada;
         int grauSaida;
+        Aresta* cabeca;
     public:
         No(int id);
         ~No();
@@ -29,6 +30,7 @@ class No {
         void setGrau(int);
         void setGrauEntrada(int);
         void setGrauSaida(int);
+        void insereAresta(No*);
 };
 
 #endif // NO_H

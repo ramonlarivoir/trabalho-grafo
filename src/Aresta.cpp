@@ -1,8 +1,8 @@
 #include "Aresta.h"
 
-Aresta::Aresta() {
+Aresta::Aresta(int id_No) {
     this->pesoAresta    = 0;
-    this->id_No         = 0;
+    this->id_No         = id_No;
     this->proxAresta    = NULL;
 }
 
