@@ -30,7 +30,14 @@ class No {
         void setGrau(int);
         void setGrauEntrada(int);
         void setGrauSaida(int);
+        void aumentaGrau();
+        void aumentaGrauEntrada();
+        void aumentaGrauSaida();
+        void diminuiGrau();
+        void diminuiGrauEntrada();
+        void diminuiGrauSaida();
         void insereAresta(No*);
+        void removeAresta(No*);
 };
 
 #endif // NO_H

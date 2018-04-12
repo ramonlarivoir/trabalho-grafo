@@ -60,7 +60,7 @@ void Grafo::insereNo(No* no) {
 void Grafo::removeNo(No* no) {
     No *percorre = getListaNos();
     if(cabeca == NULL) {                              //verifica se a lista está vazia
-        std::cout << "Lista vazia" << std::endl;
+        std::cout << "Lista de Nós vazia" << std::endl;
     } else {
         if(cabeca == no) {                            //confere se é o primeiro nó da lista
             if(cabeca->getProxNo() == NULL) {
@@ -99,4 +99,8 @@ void Grafo::imprimeLista() {
 
 
     }
+}
+
+void Grafo::insereArestaNos(No* origem, No* destino) {
+    origem->insereAresta(destino);
 }

@@ -23,6 +23,7 @@ class Grafo {
         void insereNo(No*);
         void removeNo(No*);
         void imprimeLista();
+        void insereArestaNos(No*, No*);
 };
 
 #endif // GRAFO_H

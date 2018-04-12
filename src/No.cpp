@@ -15,6 +15,12 @@ No::~No() {
     //dtor
 }
 
+/*****************************/
+/*                           */
+/*       GETS E SETS         */
+/*                           */
+/*****************************/
+
 int No::getID() {
     return this->id;
 }
@@ -56,7 +62,7 @@ void No::setListaAresta(Aresta* listaAresta) {
 }
 
 void No::setGrau(int grau) {
-    this->grau = this->grau + grau;
+    this->grau = grau;
 }
 
 void No::setGrauEntrada(int grauEntrada) {
@@ -67,18 +73,89 @@ void No::setGrauSaida(int grauSaida) {
     this->grauSaida = grauSaida;
 }
 
+/*****************************/
+/*   AUMENTO E DIMINUIÇÃO    */
+/*    DOS GRAUS DOS NÓS      */
+/*      EM UMA UNIDADE       */
+/*****************************/
+
+void No::aumentaGrau() {
+    this->grau = this->grau + 1;
+}
+
+void No::aumentaGrauEntrada() {
+    this->grauEntrada = this->grauEntrada + 1;
+}
+
+void No::aumentaGrauSaida() {
+    this->grauSaida = this->grauSaida + 1;
+}
+
+void No::diminuiGrau() {
+    this->grau = this->grau - 1;
+}
+void No::diminuiGrauEntrada() {
+    this->grauEntrada = this->grauEntrada - 1;
+}
+void No::diminuiGrauSaida() {
+    this->grauSaida = this->grauSaida - 1;
+}
+
+/***********************************/
+/**                               **/
+/** INCLUSÃO E REMOÇÃO DE ARESTAS **/
+/**                               **/
+/***********************************/
+
 void No::insereAresta(No* noAdj) {
-    Aresta* percorre = getListaAresta();
-    Aresta* novaAresta = new Aresta(noAdj->getID());
+    Aresta* percorre = getListaAresta();                //aresta auxiliar para percorrer a lista de arestas
+    Aresta* novaAresta = new Aresta(noAdj->getID());    //aresta que será inserida na lista
     if(cabeca==NULL) {
-        cabeca = novaAresta;
+        cabeca = novaAresta;                            //verifica se a lista está vazia e atribui a nova aresta na lista
         setListaAresta(cabeca);
-        setGrau(1);
+        aumentaGrau();                                  //aumento dos graus das arestas
+        aumentaGrauSaida();
+        noAdj->aumentaGrauEntrada();
     } else {
-        while(percorre->getProxAresta() != NULL) {
+        while(percorre->getProxAresta() != NULL) {      //percorre até a útlima posição e insere
             percorre = percorre->getProxAresta();
         }
         percorre->setProxAresta(novaAresta);
-        setGrau(1);
+        aumentaGrau();                                  //aumento dos graus das arestas
+        aumentaGrauSaida();
+        noAdj->aumentaGrauEntrada();
+    }
+}
+
+void No::removeAresta(No* noAdj) {
+    Aresta* percorre = getListaAresta();
+    if(cabeca == NULL) {                                    //verifica se a lista está vazia
+        std::cout << "Lista de Arestas vazia" << std::endl;
+    } else {
+        if(cabeca->getIDNo() == noAdj->getID()) {           //verifica se é a primeira aresta da lista
+            if(cabeca->getProxAresta() == NULL) {
+                cabeca == NULL;
+                diminuiGrau();                              //caso seja a única aresta faz a remoção e diminui os graus
+                diminuiGrauSaida();
+                noAdj->diminuiGrauEntrada();
+            } else {
+                percorre = percorre->getProxAresta();      //se não for a única aresta, aponta para a próxima e exclui a primeira
+                delete cabeca;
+                cabeca = percorre;
+                diminuiGrau();
+                diminuiGrauSaida();
+                noAdj->diminuiGrauEntrada();
+            }
+        } else {
+            while(percorre->getProxAresta()->getIDNo() != noAdj->getID()) {
+                percorre = percorre->getProxAresta();       //percorre a lista até a aresta
+            }
+            Aresta* aux = percorre->getProxAresta();
+            percorre->setProxAresta(aux->getProxAresta());
+            delete aux;                                     //remove a aresta e diminui os graus
+            diminuiGrau();
+            diminuiGrauSaida();
+            noAdj->diminuiGrauEntrada();
+        }
     }
 }
