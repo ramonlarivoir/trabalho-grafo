@@ -203,3 +203,31 @@ void Grafo::grafoSimplesCompleto() {
         std::cout << "O grafo não é completo" << std::endl;
     }
 }
+
+/**********************************/
+/*                                */
+/* APRESENTA A SEQUÊNCIA DE GRAUS */
+/*        (NÃO FINALIZADO)        */
+/**********************************/
+
+void Grafo::sequenciaGrau() {
+    int tam = getOrdem();
+    int seq[tam];
+    int i = 0;
+    No* percorre = getListaNos();
+    while(percorre->getProxNo() != NULL) {
+        seq[i] = percorre->getGrau();
+        i++;
+        percorre = percorre->getProxNo();
+    }
+
+    std::sort(seq, seq + tam);
+
+    std::cout << "<";
+
+    for(int j = 0; j < tam; j++) {
+        std::cout << seq[j] << ", ";
+    }
+
+    std::cout<< ">" << std::endl;
+}

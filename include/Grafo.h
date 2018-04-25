@@ -2,6 +2,7 @@
 #define GRAFO_H
 
 # include <iostream>
+# include <algorithm>
 
 # include "No.h"
 
@@ -30,6 +31,7 @@ class Grafo {
         void vizinhancaAbertaNo(int idNo);
         void vizinhancaFechadaNo(int idNo);
         void grafoSimplesCompleto();
+        void sequenciaGrau();
 };
 
 #endif // GRAFO_H

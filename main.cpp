@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #include "No.h"
 #include "Aresta.h"
@@ -30,10 +31,13 @@ int main() {
     cout<<"Confere grafo completo"<< endl;
     g->insereArestaNos(no1, no2);
     g->grafoSimplesCompleto();
+    g->sequenciaGrau();
     g->insereArestaNos(no1, no3);
     g->grafoSimplesCompleto();
+    g->sequenciaGrau();
     g->insereArestaNos(no2, no3);
     g->grafoSimplesCompleto();
+
 
   /*  g->imprimeLista();
 
