@@ -55,6 +55,7 @@ void Grafo::insereNo(No* no) {
         }
         percorre->setProxNo(no);
     }
+    this->ordem++;
 }
 
 void Grafo::removeNo(No* no) {
@@ -101,6 +102,50 @@ void Grafo::imprimeLista() {
     }
 }
 
+/******************************/
+/*                            */
+/*   INSERE ARESTA NOS NÓS    */
+/*                            */
+/******************************/
+
 void Grafo::insereArestaNos(No* origem, No* destino) {
     origem->insereAresta(destino);
+}
+
+/******************************/
+/*                            */
+/*   INFORMA ORDEM DO GRAFO   */
+/*                            */
+/******************************/
+
+void Grafo::informaOrdem() {
+    std::cout << "A ordem deste grafo é: " << this->getOrdem() << std::endl;
+}
+
+/********************************/
+/*                              */
+/* INFORMA SE O GRAFO É TRIVIAL */
+/*                              */
+/********************************/
+
+void Grafo::trivial() {
+    if(this->getOrdem() == 1 && this->cabeca->getGrau() == 0) {
+        std::cout << "O grafo é trivial" << std::endl;
+    } else {
+        std::cout << "O grafo não é trivial" << std::endl;
+    }
+}
+
+/*******************************/
+/*                             */
+/*  INFORMA SE O GRAFO É NULO  */
+/*                             */
+/*******************************/
+
+void Grafo::nulo() {
+    if(this->getOrdem() == 0) {
+        std::cout << "O grafo é nulo" << std::endl;
+    } else {
+        std::cout << "O grafo não é nulo" << std::endl;
+    }
 }

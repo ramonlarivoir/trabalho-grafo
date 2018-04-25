@@ -14,9 +14,16 @@ int main() {
 
     Grafo* g = new Grafo();
 
+    g->nulo();
     g->insereNo(no1);
+    g->informaOrdem();
+    g->nulo();
+    g->trivial();
     g->insereNo(no2);
+    g->informaOrdem();
+    g->trivial();
     g->insereNo(no3);
+    g->informaOrdem();
 
     g->imprimeLista();
 

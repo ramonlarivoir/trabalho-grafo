@@ -24,6 +24,9 @@ class Grafo {
         void removeNo(No*);
         void imprimeLista();
         void insereArestaNos(No*, No*);
+        void informaOrdem();
+        void trivial();
+        void nulo();
 };
 
 #endif // GRAFO_H
