@@ -19,13 +19,23 @@ int main() {
     g->informaOrdem();
     g->nulo();
     g->trivial();
+    g->grafoSimplesCompleto();
     g->insereNo(no2);
     g->informaOrdem();
     g->trivial();
+    g->grafoSimplesCompleto();
     g->insereNo(no3);
     g->informaOrdem();
 
-    g->imprimeLista();
+    cout<<"Confere grafo completo"<< endl;
+    g->insereArestaNos(no1, no2);
+    g->grafoSimplesCompleto();
+    g->insereArestaNos(no1, no3);
+    g->grafoSimplesCompleto();
+    g->insereArestaNos(no2, no3);
+    g->grafoSimplesCompleto();
+
+  /*  g->imprimeLista();
 
     cout << "grau 1: " <<no1->getGrau() << endl;
 
@@ -51,7 +61,7 @@ int main() {
     cout << "grau saida 3: " <<no2->getGrauEntrada() << endl;
 
     cout << "Nó 1: " <<no1->getListaAresta()->getIDNo() << endl;
-    cout << "Nó 1: " <<no1->getListaAresta()->getProxAresta()->getIDNo() << endl;
+    cout << "Nó 1: " <<no1->getListaAresta()->getProxAresta()->getIDNo() << endl; */
 
     return 0;
 }

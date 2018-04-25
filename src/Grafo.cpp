@@ -181,3 +181,25 @@ void Grafo::vizinhancaFechadaNo(int idNo) {
     }
     percorre->vizinhancaFechada();
 }
+
+/**********************************/
+/*                                */
+/* VERIFICA SE O GRAFO É COMPLETO */
+/*        (GRAFO SIMPLES)         */
+/*                                */
+/**********************************/
+
+void Grafo::grafoSimplesCompleto() {
+    No* percorre = getListaNos();
+    int soma = 0;
+    int completo = ((getOrdem()*(getOrdem()-1))/2);
+    while(percorre->getProxNo() != NULL) {
+        soma = soma + percorre->getGrau();
+        percorre = percorre->getProxNo();
+    }
+    if(soma == completo) {
+        std::cout << "O grafo é completo" << std::endl;
+    } else {
+        std::cout << "O grafo não é completo" << std::endl;
+    }
+}
