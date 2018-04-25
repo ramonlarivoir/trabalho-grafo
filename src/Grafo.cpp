@@ -149,3 +149,21 @@ void Grafo::nulo() {
         std::cout << "O grafo não é nulo" << std::endl;
     }
 }
+
+/************************************/
+/*                                  */
+/* MOSTRA A VIZINHANÇA ABERTA DO NÓ */
+/*                                  */
+/************************************/
+
+void Grafo::vizinhancaAbertaNo(int idNo) {
+    No* percorre = getListaNos();
+    if(percorre->getID() == idNo) {
+        percorre->vizinhancaAberta();
+    } else {
+        while(percorre->getID() != idNo) {
+            percorre = percorre->getProxNo();
+        }
+        percorre->vizinhancaAberta();
+    }
+}

@@ -38,6 +38,8 @@ class No {
         void diminuiGrauSaida();
         void insereAresta(No*);
         void removeAresta(No*);
+        void vizinhancaAberta();
+        void vizinhancaFechada();
 };
 
 #endif // NO_H

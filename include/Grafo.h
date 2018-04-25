@@ -27,6 +27,7 @@ class Grafo {
         void informaOrdem();
         void trivial();
         void nulo();
+        void vizinhancaAbertaNo(int idNo);
 };
 
 #endif // GRAFO_H

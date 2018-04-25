@@ -159,3 +159,23 @@ void No::removeAresta(No* noAdj) {
         }
     }
 }
+
+/************************************/
+/*                                  */
+/* MOSTRA A VIZINHANÇA ABERTA DO NÓ */
+/*                                  */
+/************************************/
+
+void No::vizinhancaAberta() {
+    Aresta* percorre = getListaAresta();
+    std::cout << "Vizinhança aberta do nó " << this->getID() << ":" << std::endl;
+    if(percorre->getProxAresta() == NULL) {
+        std::cout << percorre->getIDNo() << std::endl;
+    } else {
+        while(percorre->getProxAresta() != NULL) {
+            std::cout << percorre->getIDNo() << std::endl;
+            percorre = percorre->getProxAresta();
+            std::cout << percorre->getIDNo() << std::endl;
+        }
+    }
+}

@@ -31,9 +31,15 @@ int main() {
 
     no1->insereAresta(no2);
     cout << "grau 1: " <<no1->getGrau() << endl;
+    no1->vizinhancaAberta();
+    g->vizinhancaAbertaNo(1);
     no1->insereAresta(no3);
     cout << "grau 1: " <<no1->getGrau() << endl;
+    no1->vizinhancaAberta();
+    g->vizinhancaAbertaNo(1);
     no3->insereAresta(no2);
+    no3->vizinhancaAberta();
+    g->vizinhancaAbertaNo(3);
     cout << "grau saida 1: " <<no1->getGrauSaida() << endl;
     cout << "grau saida 2: " <<no2->getGrauEntrada() << endl;
     cout << "grau saida 3: " <<no3->getGrauEntrada() << endl;
