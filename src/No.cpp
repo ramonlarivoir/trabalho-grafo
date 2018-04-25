@@ -179,3 +179,23 @@ void No::vizinhancaAberta() {
         }
     }
 }
+/***********************************/
+/*                                 */
+/*  MOSTRA A FECHADA ABERTA DO NÓ  */
+/*                                 */
+/***********************************/
+
+void No::vizinhancaFechada() {
+    Aresta* percorre = getListaAresta();
+    std::cout << "Vizinhança fechada do nó " << this->getID() << ":" << std::endl;
+    std::cout << this->getID() << std::endl;
+    if(percorre->getProxAresta() == NULL) {
+        std::cout << percorre->getIDNo() << std::endl;
+    } else {
+        while(percorre->getProxAresta() != NULL) {
+            std::cout << percorre->getIDNo() << std::endl;
+            percorre = percorre->getProxAresta();
+            std::cout << percorre->getIDNo() << std::endl;
+        }
+    }
+}

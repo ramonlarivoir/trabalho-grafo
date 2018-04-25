@@ -28,6 +28,7 @@ class Grafo {
         void trivial();
         void nulo();
         void vizinhancaAbertaNo(int idNo);
+        void vizinhancaFechadaNo(int idNo);
 };
 
 #endif // GRAFO_H

@@ -167,3 +167,17 @@ void Grafo::vizinhancaAbertaNo(int idNo) {
         percorre->vizinhancaAberta();
     }
 }
+
+/***********************************/
+/*                                 */
+/*  MOSTRA A FECHADA ABERTA DO NÓ  */
+/*                                 */
+/***********************************/
+
+void Grafo::vizinhancaFechadaNo(int idNo) {
+    No* percorre = getListaNos();
+    while(percorre->getID() != idNo) {
+        percorre = percorre->getProxNo();
+    }
+    percorre->vizinhancaFechada();
+}

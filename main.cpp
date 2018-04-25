@@ -36,7 +36,9 @@ int main() {
     no1->insereAresta(no3);
     cout << "grau 1: " <<no1->getGrau() << endl;
     no1->vizinhancaAberta();
+    no1->vizinhancaFechada();
     g->vizinhancaAbertaNo(1);
+    g->vizinhancaFechadaNo(1);
     no3->insereAresta(no2);
     no3->vizinhancaAberta();
     g->vizinhancaAbertaNo(3);
