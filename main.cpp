@@ -4,6 +4,7 @@
 #include "No.h"
 #include "Aresta.h"
 #include "Grafo.h"
+#include "LeitorArquivoGrafo.h"
 
 using namespace std;
 
@@ -14,14 +15,24 @@ int main() {
     No* no3 = new No(3);
 
     Grafo* g = new Grafo();
-
+    LeitorArquivoGrafo l;
+    l.atribuirDados("teste.txt", *g);
     g->nulo();
-    g->insereNo(no1);
     g->informaOrdem();
-    g->nulo();
     g->trivial();
     g->grafoSimplesCompleto();
-    g->insereNo(no2);
+    g->imprimeLista();
+    int i;
+    for(i = 1; i <= g->getOrdem(); i++) {
+        g->getNo(i)->vizinhancaAberta();
+        cout<< "id: " << g->getNo(i)->getID() << endl;
+    }
+    cout << "no 10: " << g->getNo(10)->getID() << endl;
+    cout << "no 1: " << g->getNo(1)->getID() <<endl;
+    cout << "no 2: " << g->getNo(2)->getID() <<endl;
+    //g->insereNo(no1);
+    //g->nulo();
+    /*g->insereNo(no2);
     g->informaOrdem();
     g->trivial();
     g->grafoSimplesCompleto();
@@ -36,7 +47,7 @@ int main() {
     g->grafoSimplesCompleto();
     g->sequenciaGrau();
     g->insereArestaNos(no2, no3);
-    g->grafoSimplesCompleto();
+    g->grafoSimplesCompleto(); */
 
 
   /*  g->imprimeLista();

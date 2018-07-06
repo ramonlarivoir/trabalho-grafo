@@ -168,7 +168,7 @@ void No::removeAresta(No* noAdj) {
 
 void No::vizinhancaAberta() {
     Aresta* percorre = getListaAresta();
-    std::cout << "Vizinhança aberta do nó " << this->getID() << ":" << std::endl;
+    std::cout << "Vizinhanca aberta do no " << this->getID() << ":" << std::endl;
     if(percorre->getProxAresta() == NULL) {
         std::cout << percorre->getIDNo() << std::endl;
     } else {
@@ -187,7 +187,7 @@ void No::vizinhancaAberta() {
 
 void No::vizinhancaFechada() {
     Aresta* percorre = getListaAresta();
-    std::cout << "Vizinhança fechada do nó " << this->getID() << ":" << std::endl;
+    std::cout << "Vizinhanca fechada do no " << this->getID() << ":" << std::endl;
     std::cout << this->getID() << std::endl;
     if(percorre->getProxAresta() == NULL) {
         std::cout << percorre->getIDNo() << std::endl;

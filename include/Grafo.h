@@ -20,7 +20,9 @@ class Grafo {
         int getOrdem();
         int getGrau();
         int getNumArestas();
+        No* getNo(int);
         void setListaNos(No*);
+        void setOrdem(int);
         void insereNo(No*);
         void removeNo(No*);
         void imprimeLista();

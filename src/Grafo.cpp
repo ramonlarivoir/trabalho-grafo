@@ -38,6 +38,27 @@ void Grafo::setListaNos(No* listaNo) {
     this->listaNos = listaNo;
 }
 
+void Grafo::setOrdem(int ordem) {
+    this->ordem = ordem;
+}
+
+No* Grafo::getNo(int id) {
+    No *percorre = getListaNos();
+    if(cabeca == NULL) {                              //verifica se a lista está vazia
+        std::cout << "Lista de Nos vazia" << std::endl;
+        exit(0);
+    } else {
+        if(id == percorre->getID()) {                            //confere se é o primeiro nó da lista
+            return percorre;
+        } else {
+            while(percorre->getProxNo()->getID() != id) {      //percorre a lista até que o próximo nó seja o que deve ser removido
+                percorre = percorre->getProxNo();
+            }
+            return percorre;
+        }
+    }
+}
+
 /*****************************/
 /*                           */
 /* INCLUSÃO E REMOÇÃO DE NÓS */
@@ -55,13 +76,12 @@ void Grafo::insereNo(No* no) {
         }
         percorre->setProxNo(no);
     }
-    this->ordem++;
 }
 
 void Grafo::removeNo(No* no) {
     No *percorre = getListaNos();
     if(cabeca == NULL) {                              //verifica se a lista está vazia
-        std::cout << "Lista de Nós vazia" << std::endl;
+        std::cout << "Lista de Nos vazia" << std::endl;
     } else {
         if(cabeca == no) {                            //confere se é o primeiro nó da lista
             if(cabeca->getProxNo() == NULL) {
@@ -119,7 +139,7 @@ void Grafo::insereArestaNos(No* origem, No* destino) {
 /******************************/
 
 void Grafo::informaOrdem() {
-    std::cout << "A ordem deste grafo é: " << this->getOrdem() << std::endl;
+    std::cout << "A ordem deste grafo eh: " << this->getOrdem() << std::endl;
 }
 
 /********************************/
@@ -130,9 +150,9 @@ void Grafo::informaOrdem() {
 
 void Grafo::trivial() {
     if(this->getOrdem() == 1 && this->cabeca->getGrau() == 0) {
-        std::cout << "O grafo é trivial" << std::endl;
+        std::cout << "O grafo eh trivial" << std::endl;
     } else {
-        std::cout << "O grafo não é trivial" << std::endl;
+        std::cout << "O grafo nao eh trivial" << std::endl;
     }
 }
 
@@ -144,9 +164,9 @@ void Grafo::trivial() {
 
 void Grafo::nulo() {
     if(this->getOrdem() == 0) {
-        std::cout << "O grafo é nulo" << std::endl;
+        std::cout << "O grafo eh nulo" << std::endl;
     } else {
-        std::cout << "O grafo não é nulo" << std::endl;
+        std::cout << "O grafo nao eh nulo" << std::endl;
     }
 }
 
@@ -198,9 +218,9 @@ void Grafo::grafoSimplesCompleto() {
         percorre = percorre->getProxNo();
     }
     if(soma == completo) {
-        std::cout << "O grafo é completo" << std::endl;
+        std::cout << "O grafo eh completo" << std::endl;
     } else {
-        std::cout << "O grafo não é completo" << std::endl;
+        std::cout << "O grafo nao eh completo" << std::endl;
     }
 }
 

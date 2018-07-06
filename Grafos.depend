@@ -5,25 +5,38 @@
 1523562267 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\aresta.h
 	<iostream>
 
-1524684793 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\main.cpp
+1530812645 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\main.cpp
 	<iostream>
 	<algorithm>
 	"No.h"
 	"Aresta.h"
 	"Grafo.h"
+	"LeitorArquivoGrafo.h"
 
 1524679373 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\no.h
 	<iostream>
 	"Aresta.h"
 
-1524684215 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\grafo.h
+1530809655 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\grafo.h
 	<iostream>
 	<algorithm>
 	"No.h"
 
-1524684908 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\grafo.cpp
+1530813514 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\grafo.cpp
 	"Grafo.h"
 
-1524680998 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\no.cpp
+1530810857 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\no.cpp
 	"No.h"
+
+1530741919 c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\include\leitorarquivografo.h
+	<iostream>
+	<fstream>
+	<string>
+	<list>
+	"Grafo.h"
+	"Aresta.h"
+	"No.h"
+
+1530812934 source:c:\users\ramon larivoir\desktop\ramon\materiais ufjf\teoria dos grafos\2018-1\trabalho\trabalho grafo\grafos\src\leitorarquivografo.cpp
+	"LeitorArquivoGrafo.h"
 
