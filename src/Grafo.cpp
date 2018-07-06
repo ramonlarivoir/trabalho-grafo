@@ -4,8 +4,7 @@ Grafo::Grafo() {
     this->ordem          = 0;
     this->grauGrafo      = 0;
     this->numArestas     = 0;
-    this->listaNos       = NULL;
-    this->cabeca         = NULL;
+    this->listaNos;
 }
 
 Grafo::~Grafo() {
@@ -18,7 +17,7 @@ Grafo::~Grafo() {
 /*                           */
 /*****************************/
 
-No* Grafo::getListaNos() {
+list<No*> Grafo::getListaNos() {
     return this->listaNos;
 }
 
@@ -34,7 +33,7 @@ int Grafo::getNumArestas() {
     return this->numArestas;
 }
 
-void Grafo::setListaNos(No* listaNo) {
+void Grafo::setListaNos(list<No*> listaNo) {
     this->listaNos = listaNo;
 }
 
@@ -43,18 +42,16 @@ void Grafo::setOrdem(int ordem) {
 }
 
 No* Grafo::getNo(int id) {
-    No *percorre = getListaNos();
-    if(cabeca == NULL) {                              //verifica se a lista está vazia
-        std::cout << "Lista de Nos vazia" << std::endl;
+    if(listaNos.size() == 0) {                              //verifica se a lista está vazia
+        cout << "Lista de Nos vazia" << endl;
         exit(0);
     } else {
-        if(id == percorre->getID()) {                            //confere se é o primeiro nó da lista
-            return percorre;
-        } else {
-            while(percorre->getProxNo()->getID() != id) {      //percorre a lista até que o próximo nó seja o que deve ser removido
-                percorre = percorre->getProxNo();
+        for(auto it = listaNos.begin(); it != listaNos.end(); it ++) {
+            No *no = *it;
+            if(no->getID() == id) {
+                return no;
+                exit(0);
             }
-            return percorre;
         }
     }
 }
@@ -66,39 +63,11 @@ No* Grafo::getNo(int id) {
 /*****************************/
 
 void Grafo::insereNo(No* no) {
-    No *percorre = getListaNos();                   //cria nó para percorrer a lista de nós
-    if(percorre==NULL) {                            //se a lista está vazia cria uma nova com o primeiro nó
-        cabeca = no;
-        setListaNos(no);
-    } else {
-        while(percorre->getProxNo() != NULL) {      //se não está vazia, vai até o último nó e adiciona
-            percorre = percorre->getProxNo();
-        }
-        percorre->setProxNo(no);
-    }
+    listaNos.push_back(no);
 }
 
 void Grafo::removeNo(No* no) {
-    No *percorre = getListaNos();
-    if(cabeca == NULL) {                              //verifica se a lista está vazia
-        std::cout << "Lista de Nos vazia" << std::endl;
-    } else {
-        if(cabeca == no) {                            //confere se é o primeiro nó da lista
-            if(cabeca->getProxNo() == NULL) {
-                cabeca = NULL;                        //se for o único nó na lista, remove e encerra a lista
-            } else {
-                percorre = percorre->getProxNo();     //se não for o único nó apenas remove e torna o próximo nó como nó cabeça da lista
-                delete cabeca;
-                cabeca = percorre;
-            }
-        } else {
-            while(percorre->getProxNo() != no) {      //percorre a lista até que o próximo nó seja o que deve ser removido
-                percorre = percorre->getProxNo();
-            }
-            percorre->setProxNo(no->getProxNo());     //seta o próximo nó como o sucessor do nó que será remido e remove o nó
-            delete no;
-        }
-    }
+    listaNos.remove(no);
 }
 
 /******************************/
@@ -108,17 +77,14 @@ void Grafo::removeNo(No* no) {
 /******************************/
 
 void Grafo::imprimeLista() {
-    No* percorre = getListaNos();                               //cria nó para percorrer a lista de nós
-    if(cabeca == NULL) {                                        //verifica se a lista está vazia
-        std::cout << "Lista vazia" << std::endl;
+    if(listaNos.size() == 0) {                                        //verifica se a lista está vazia
+        cout << "Lista vazia" << endl;
     } else {
-
-        for(percorre = cabeca; percorre->getProxNo() != NULL; percorre = percorre->getProxNo()) {
-            std::cout << percorre->getID() << std::endl;        //percorre a lista até o nó em que o próximo é nulo
+        cout << "Lista de todos os nos do grafo:" << endl;
+        for(auto it = listaNos.begin(); it != listaNos.end(); it++) {
+            No *no = *it;
+            cout << no->getID() << endl;
         }
-        std::cout << percorre->getID() << std::endl;            //imprime o último nó da lista
-
-
     }
 }
 
@@ -139,7 +105,7 @@ void Grafo::insereArestaNos(No* origem, No* destino) {
 /******************************/
 
 void Grafo::informaOrdem() {
-    std::cout << "A ordem deste grafo eh: " << this->getOrdem() << std::endl;
+    cout << "A ordem deste grafo eh: " << this->getOrdem() << endl;
 }
 
 /********************************/
@@ -149,10 +115,11 @@ void Grafo::informaOrdem() {
 /********************************/
 
 void Grafo::trivial() {
-    if(this->getOrdem() == 1 && this->cabeca->getGrau() == 0) {
-        std::cout << "O grafo eh trivial" << std::endl;
+    No *no = listaNos.front();
+    if(this->getOrdem() == 1 && no->getGrau() == 0) {
+        cout << "O grafo eh trivial" << endl;
     } else {
-        std::cout << "O grafo nao eh trivial" << std::endl;
+        cout << "O grafo nao eh trivial" << endl;
     }
 }
 
@@ -164,9 +131,9 @@ void Grafo::trivial() {
 
 void Grafo::nulo() {
     if(this->getOrdem() == 0) {
-        std::cout << "O grafo eh nulo" << std::endl;
+        cout << "O grafo eh nulo" << endl;
     } else {
-        std::cout << "O grafo nao eh nulo" << std::endl;
+        cout << "O grafo nao eh nulo" << endl;
     }
 }
 
@@ -177,15 +144,8 @@ void Grafo::nulo() {
 /************************************/
 
 void Grafo::vizinhancaAbertaNo(int idNo) {
-    No* percorre = getListaNos();
-    if(percorre->getID() == idNo) {
-        percorre->vizinhancaAberta();
-    } else {
-        while(percorre->getID() != idNo) {
-            percorre = percorre->getProxNo();
-        }
-        percorre->vizinhancaAberta();
-    }
+    No *no = getNo(idNo);
+    no->vizinhancaAberta();
 }
 
 /***********************************/
@@ -195,11 +155,8 @@ void Grafo::vizinhancaAbertaNo(int idNo) {
 /***********************************/
 
 void Grafo::vizinhancaFechadaNo(int idNo) {
-    No* percorre = getListaNos();
-    while(percorre->getID() != idNo) {
-        percorre = percorre->getProxNo();
-    }
-    percorre->vizinhancaFechada();
+    No *no = getNo(idNo);
+    no->vizinhancaFechada();
 }
 
 /**********************************/
@@ -210,17 +167,16 @@ void Grafo::vizinhancaFechadaNo(int idNo) {
 /**********************************/
 
 void Grafo::grafoSimplesCompleto() {
-    No* percorre = getListaNos();
     int soma = 0;
     int completo = ((getOrdem()*(getOrdem()-1))/2);
-    while(percorre->getProxNo() != NULL) {
-        soma = soma + percorre->getGrau();
-        percorre = percorre->getProxNo();
+    for(auto i = listaNos.begin(); i != listaNos.end(); i++) {
+        No *no = *i;
+        soma = soma + no->getGrau();
     }
     if(soma == completo) {
-        std::cout << "O grafo eh completo" << std::endl;
+        cout << "O grafo eh completo" << endl;
     } else {
-        std::cout << "O grafo nao eh completo" << std::endl;
+        cout << "O grafo nao eh completo" << endl;
     }
 }
 
@@ -231,23 +187,24 @@ void Grafo::grafoSimplesCompleto() {
 /**********************************/
 
 void Grafo::sequenciaGrau() {
-    int tam = getOrdem();
-    int seq[tam];
-    int i = 0;
-    No* percorre = getListaNos();
-    while(percorre->getProxNo() != NULL) {
-        seq[i] = percorre->getGrau();
-        i++;
-        percorre = percorre->getProxNo();
+    list<int> sequencia;
+    int aux = 0;
+
+    for(auto i = listaNos.begin(); i != listaNos.end(); i++) {
+        No *no = *i;
+        sequencia.push_back(no->getGrau());
     }
 
-    std::sort(seq, seq + tam);
+    sequencia.sort();
+    sequencia.reverse();
 
-    std::cout << "<";
-
-    for(int j = 0; j < tam; j++) {
-        std::cout << seq[j] << ", ";
+    cout << "<";
+    for(auto j = sequencia.begin(); j != sequencia.end(); j++) {
+        cout << *j;
+        aux++;
+        if(aux != sequencia.size()){
+            cout << ", ";
+        }
     }
-
-    std::cout<< ">" << std::endl;
+    cout << ">";
 }

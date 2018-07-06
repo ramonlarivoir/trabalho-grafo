@@ -4,24 +4,26 @@
 # include <iostream>
 # include <algorithm>
 
-# include "No.h"
+#include "No.h"
+#include <list>
+
+using namespace std;
 
 class Grafo {
     private:
         int ordem;
         int grauGrafo;
         int numArestas;
-        No *listaNos;
-        No *cabeca;
+        std::list<No*> listaNos;
     public:
         Grafo();
         ~Grafo();
-        No* getListaNos();
+        std::list<No*> getListaNos();
         int getOrdem();
         int getGrau();
         int getNumArestas();
         No* getNo(int);
-        void setListaNos(No*);
+        void setListaNos(list<No*>);
         void setOrdem(int);
         void insereNo(No*);
         void removeNo(No*);

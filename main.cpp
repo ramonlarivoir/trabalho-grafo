@@ -24,12 +24,14 @@ int main() {
     g->imprimeLista();
     int i;
     for(i = 1; i <= g->getOrdem(); i++) {
+        cout<< endl << endl << "id: " << g->getNo(i)->getID() << endl;
         g->getNo(i)->vizinhancaAberta();
-        cout<< "id: " << g->getNo(i)->getID() << endl;
     }
-    cout << "no 10: " << g->getNo(10)->getID() << endl;
-    cout << "no 1: " << g->getNo(1)->getID() <<endl;
-    cout << "no 2: " << g->getNo(2)->getID() <<endl;
+    cout << endl << endl << "no 10: id -> " << g->getNo(10)->getID() << endl;
+    cout << "no 1: id -> " << g->getNo(1)->getID() << endl;
+    cout << "no 2: id -> " << g->getNo(2)->getID() << endl;
+    cout << endl;
+    g->sequenciaGrau();
     //g->insereNo(no1);
     //g->nulo();
     /*g->insereNo(no2);
