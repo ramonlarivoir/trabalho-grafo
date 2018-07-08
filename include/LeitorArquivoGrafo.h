@@ -23,12 +23,12 @@
 #include "Aresta.h"
 #include "No.h"
 
+using namespace std;
+
 class LeitorArquivoGrafo
 {
-private:
-  static void setSequenciaGrau(Grafo& grafo);
 public:
-  static void atribuirDados(std::string arquivo, Grafo& grafo);
+  static void leituraArquivo(string arquivo, Grafo& grafo);
 };
 
 #endif // LEITORARQUIVOGRAFO_H

@@ -6,14 +6,14 @@
 
 class Aresta {
     private:
-        float pesoAresta;
+        double pesoAresta;
         int id_No;
     public:
-        Aresta(int);
+        Aresta(int idNo, double peso);
         ~Aresta();
         float getPesoAresta();
         int getIDNo();
-        void setPesoAresta(float);
+        void setPesoAresta(double);
 };
 
 #endif // ARESTA_H

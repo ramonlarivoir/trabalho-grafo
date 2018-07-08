@@ -16,7 +16,7 @@ int main() {
 
     Grafo* g = new Grafo();
     LeitorArquivoGrafo l;
-    l.atribuirDados("teste.txt", *g);
+    l.leituraArquivo("DGRP_LAP_0_3000_1.txt", *g);
     g->nulo();
     g->informaOrdem();
     g->trivial();

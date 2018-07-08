@@ -1,7 +1,7 @@
 #include "Aresta.h"
 
-Aresta::Aresta(int id_No) {
-    this->pesoAresta    = 0;
+Aresta::Aresta(int id_No, double peso) {
+    this->pesoAresta    = peso;
     this->id_No         = id_No;
 }
 
@@ -17,6 +17,6 @@ int Aresta::getIDNo() {
     return this->id_No;
 }
 
-void  Aresta::setPesoAresta(float peso) {
+void  Aresta::setPesoAresta(double peso) {
     this->pesoAresta = peso;
 }

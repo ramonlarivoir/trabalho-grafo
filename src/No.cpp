@@ -106,8 +106,8 @@ void No::diminuiGrauSaida() {
 /**                               **/
 /***********************************/
 
-void No::insereAresta(No* noAdj) {
-    Aresta *aresta = new Aresta(noAdj->getID());
+void No::insereAresta(No* noAdj, double peso) {
+    Aresta *aresta = new Aresta(noAdj->getID(), peso);
     listaAresta.push_back(aresta);
     aumentaGrau();
     aumentaGrauSaida();
@@ -115,7 +115,7 @@ void No::insereAresta(No* noAdj) {
 }
 
 void No::removeAresta(No* noAdj) {
-    Aresta *aresta = new Aresta(noAdj->getID());
+    Aresta *aresta = new Aresta(noAdj->getID(), noAdj->getPeso());
     listaAresta.remove(aresta);
     diminuiGrau();
     diminuiGrauSaida();

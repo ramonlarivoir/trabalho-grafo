@@ -38,7 +38,7 @@ class No {
         void diminuiGrau();
         void diminuiGrauEntrada();
         void diminuiGrauSaida();
-        void insereAresta(No*);
+        void insereAresta(No*, double);
         void removeAresta(No*);
         void vizinhancaAberta();
         void vizinhancaFechada();

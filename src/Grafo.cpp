@@ -94,8 +94,8 @@ void Grafo::imprimeLista() {
 /*                            */
 /******************************/
 
-void Grafo::insereArestaNos(No* origem, No* destino) {
-    origem->insereAresta(destino);
+void Grafo::insereArestaNos(No* origem, No* destino, double peso) {
+    origem->insereAresta(destino, peso);
 }
 
 /******************************/
