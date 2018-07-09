@@ -11,7 +11,6 @@ class No {
     private:
         int id;
         float pesoNo;
-        No *proxNo;
         list<Aresta*> listaAresta;
         int grau;
         int grauEntrada;
@@ -21,13 +20,12 @@ class No {
         ~No();
         int getID();
         float getPeso();
-        No* getProxNo();
         list<Aresta*> getListaAresta();
         int getGrau();
         int getGrauEntrada();
         int getGrauSaida();
+        Aresta* getAresta(int idNo);
         void setPeso(float);
-        void setProxNo(No*);
         void setListaAresta(list<Aresta*>);
         void setGrau(int);
         void setGrauEntrada(int);
@@ -38,7 +36,7 @@ class No {
         void diminuiGrau();
         void diminuiGrauEntrada();
         void diminuiGrauSaida();
-        void insereAresta(No*, double);
+        void insereAresta(No*, int);
         void removeAresta(No*);
         void vizinhancaAberta();
         void vizinhancaFechada();

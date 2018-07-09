@@ -3,7 +3,6 @@
 No::No(int id) {
     this->id            = id;
     this->pesoNo        = 0;
-    this->proxNo        = NULL;
     this->listaAresta;
     this->grau          = 0;
     this->grauEntrada   = 0;
@@ -28,10 +27,6 @@ float No::getPeso() {
     return this->pesoNo;
 }
 
-No* No::getProxNo() {
-    return this->proxNo;
-}
-
 list<Aresta*> No::getListaAresta() {
     return this->listaAresta;
 }
@@ -52,10 +47,6 @@ void No::setPeso(float peso) {
     this->pesoNo = peso;
 }
 
-void No::setProxNo(No* prox) {
-    this->proxNo = prox;
-}
-
 void No::setListaAresta(list<Aresta*> listaAresta) {
     this->listaAresta = listaAresta;
 }
@@ -70,6 +61,23 @@ void No::setGrauEntrada(int grauEntrada) {
 
 void No::setGrauSaida(int grauSaida) {
     this->grauSaida = grauSaida;
+}
+
+Aresta* No::getAresta(int idNo) {
+    if(listaAresta.size() == 0) {                              //verifica se a lista está vazia
+        cout << "Lista de Arestas vazia" << endl;
+        exit(0);
+    } else {
+        for(auto it = listaAresta.begin(); it != listaAresta.end(); it ++) {
+            Aresta *aresta = *it;
+            if(aresta->getIDNo() == idNo) {
+                return aresta;
+                exit(0);
+            }
+        }
+        cout << "Aresta nao existe" << endl;
+        exit(0);
+    }
 }
 
 /*****************************/
@@ -106,11 +114,12 @@ void No::diminuiGrauSaida() {
 /**                               **/
 /***********************************/
 
-void No::insereAresta(No* noAdj, double peso) {
+void No::insereAresta(No* noAdj, int peso) {
     Aresta *aresta = new Aresta(noAdj->getID(), peso);
     listaAresta.push_back(aresta);
     aumentaGrau();
     aumentaGrauSaida();
+    noAdj->aumentaGrau();
     noAdj->aumentaGrauEntrada();
 }
 
@@ -119,6 +128,7 @@ void No::removeAresta(No* noAdj) {
     listaAresta.remove(aresta);
     diminuiGrau();
     diminuiGrauSaida();
+    noAdj->diminuiGrau();
     noAdj->diminuiGrauSaida();
 }
 
