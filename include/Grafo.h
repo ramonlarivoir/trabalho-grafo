@@ -40,7 +40,7 @@ class Grafo {
         void sequenciaGrau();
         void sequenciaGrauEntrada();
         void sequenciaGrauSaida();
-        int dijkstra(int orig, int dest);
+        int dijkstra(int, int);
 };
 
 #endif // GRAFO_H

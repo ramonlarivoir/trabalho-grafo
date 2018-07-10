@@ -29,7 +29,7 @@ int main() {
     cout << endl;
     //g->sequenciaGrauSaida();
 
-    cout << g->dijkstra(2, 4764) << endl;
+    //cout << g->dijkstra(2, 4764) << endl;
 
     return 0;
 }

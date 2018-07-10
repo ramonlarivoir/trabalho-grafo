@@ -260,69 +260,23 @@ void Grafo::sequenciaGrauSaida() {
 
 
 
-int Grafo::dijkstra(int orig, int dest) {
-    int V = this->getOrdem();
-    list<pair<int, int> > *adj = new list<pair<int, int> >[V];
-    for(auto i = this->listaNos.begin(); i  != this->listaNos.end(); i++) {
-        No *no = *i;
-        for(auto j = no->getListaAresta().begin(); j != no->getListaAresta().end(); j++) {
-            Aresta *aresta = *j;
-            adj[no->getID()].push_back(make_pair(aresta->getIDNo(), aresta->getPesoAresta()));
-        }
-    }
-    // vetor de distâncias
-    int dist[V];
+int Grafo::dijkstra(int origem, int destino) {
+    int v = getOrdem();
 
-    /*
-       vetor de visitados serve para caso o vértice já tenha sido
-       expandido (visitado), não expandir mais
-    */
-    int visitados[V];
+    /// dist[u] => vetor com a distancia da origem até u com o tamanho do total de vértices
+    int dist[v];
 
-    // fila de prioridades de pair (distancia, vértice)
-    priority_queue < pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;
+    /// pi[u} => vetor pai do vertice u com o tamanho do total de vértices
+    int *pi[v];
 
-    // inicia o vetor de distâncias e visitados
-    for(int i = 0; i < V; i++) {
+    /// verifica se o vertice ja foi visitado
+    int visitados[v];
+
+    for(int i = this->getOrdem(); i != this->getOrdem(); i++) {
         dist[i] = INFINITO;
+        pi[i] = NULL;
         visitados[i] = false;
     }
-
-    // a distância de orig para orig é 0
-    dist[orig] = 0;
-
-    // insere na fila
-    pq.push(make_pair(dist[orig], orig));
-
-    // loop do algoritmo
-    while(!pq.empty()) {
-        pair<int, int> p = pq.top(); // extrai o pair do topo
-        int u = p.second; // obtém o vértice do pair
-        pq.pop(); // remove da fila
-
-        // verifica se o vértice não foi expandido
-        if(visitados[u] == false) {
-            // marca como visitado
-            visitados[u] = true;
-
-            list<pair<int, int> >::iterator it;
-
-            // percorre os vértices "v" adjacentes de "u"
-            for(it = adj[u].begin(); it != adj[u].end(); it++) {
-                // obtém o vértice adjacente e o custo da aresta
-                int v = it->first;
-                int custo_aresta = it->second;
-
-                // relaxamento (u, v)
-                if(dist[v] > (dist[u] + custo_aresta)) {
-                    // atualiza a distância de "v" e insere na fila
-                    dist[v] = dist[u] + custo_aresta;
-                    pq.push(make_pair(dist[v], v));
-                }
-            }
-        }
-    }
-
-    // retorna a distância mínima até o destino
-    return dist[dest];
+    /// a distancia da origem até ela mesma é 0
+    dist[origem] = 0;
 }
